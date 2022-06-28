@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Observaciones</title>
+</head>
+<body>  
+        <section class="clean-block clean-form dark" style="background-color: transparent;">
+            <form action="/editarResidente/" id="formulario" method="post" style="margin-left: 10rem; margin-right: 10rem;"> {% csrf_token %}
+                <br>
+                <div class="block-heading" style="text-align: center;">
+                    <h1 style="color: #60C1DE;font-family: ABeeZee, sans-serif;">Agregar observaciones</h1>
+                </div>
+                <div class="mb-3" style="border: 0px; margin-top: 50px;">
+                    <label class="form-label" for="Nombre">ID:</label>
+                    <input class="form-control" type="text" id="Nombre" value="{{residente.id}}" name="id" readonly>
+                </div>
+                <div class="mb-3" style="border: 0px;">
+                    <label class="form-label" for="Nombre">Nombre del residente:</label>
+                    <input class="form-control" type="text" id="Nombre" value="{{residente.nombre}} {{residente.apellidos}}" name="nombre" readonly>
+                </div>
+                <div class="mb-3 " style="border: 0px;">
+                    <label class="form-label" for="edad">Edad</label>
+                    <input class="form-control" id="edad" name="edad" value="{{residente.edad}}" readonly>            
+                </div>
+                <div class="mb-3 " style="border: 0px;">
+                    <label class="form-label" for="descripcion">Rut:</label>
+                    <input class="form-control" type="text" id="descripcion" name="rut" value="{{residente.rut}}" readonly>
+                    <p></p>
+                </div>
+                <div class="mb-3 " style="border: 0px;">
+                    <label class="form-label" for="Temperatura">Numero de contacto de emergencia:</label>
+                    <input class="form-control" type="text" id="Temperatura"  name="contacto" value="{{residente.contacto}}" readonly>
+                    <p></p>
+                </div>
+                <div class="mb-3 " style="border: 0px;">
+                    <label class="form-label" for="tipoplanta">Enfermedades:</label>
+                    <input class="form-control" type="text" id="precio"  name="enfermedades" value="{{residente.enfermedades}}" readonly>
+                    <p></p>
+                </div>
+                <div class="mb-3 " style="border: 0px;">
+                    <label class="form-label" for="observaciones">Observaciones:</label>
+                    <input class="form-control" type="text" id="observaciones"  name="observaciones" value="{{residente.observaciones}}">
+                    <p></p>
+                </div>
+                <div style="text-align: center;">
+                    <button class="btn btn-outline-info" type="submit">Actualizar Observaciones</button>
+                </div>
+                
+            </form>
+        </section>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</html>

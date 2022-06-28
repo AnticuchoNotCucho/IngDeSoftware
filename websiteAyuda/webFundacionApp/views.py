@@ -1,9 +1,5 @@
-from email.policy import HTTP
-from http.client import HTTPResponse
-import re
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
-from .models import Residente
+from .models import Residente, Aporte
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -48,3 +44,14 @@ def eliminarResidente(request, id):
     residente = Residente.objects.get(id=id)
     residente.delete()
     return redirect('lista_residentes')
+
+def historialAportes(request):
+    aporte = Aporte.objects.all()
+    return render(request, 'historialAportes.html', {'aporte': aporte})
+
+def vistaAportador(request, id):
+    aporte = Aporte.objects.get(id=id)
+    return render(request, 'vistaAportador.html' , {'aporte': aporte})
+
+def index(request):
+    return render(request, 'index.html')

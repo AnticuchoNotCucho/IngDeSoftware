@@ -11,6 +11,15 @@ class Residente(models.Model):
     enfermedades = models.CharField(max_length=300)
     observaciones = models.CharField(max_length=300)
     
+class Aporte(models.Model):
+    rut = models.CharField(max_length=20)
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
+    numero = models.IntegerField()
+    residencia = models.CharField(max_length=50)
+    monto  = models.IntegerField()
+    fecha = models.CharField(max_length=50)
+    
     
     
     

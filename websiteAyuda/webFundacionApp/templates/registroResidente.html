@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,42 +6,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/vanilla-zoom.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/formulario.css' %}">
 
     <title>Registro Residente</title>
 </head>
 <body>
+    {% include 'navbar.html' %}
+    <br>
     <H1 style="text-align: center;">Registro nuevo paciente</H1>
     <br>
     <main class="page login-page" >
         <section class="clean-block clean-form dark" style="background-color: white ;">
-        <form action="/registrarResidente/" style="margin-left: 10rem; margin-right: 10rem;" class="form-horizontal" method="post"> {% csrf_token %}
+        <form action="/registrarResidente/" method="post" id="formulario" style="margin-top: -1rem;"> {% csrf_token %}
             <div class="form-group mb-3 ">
                 <label for="nombre" class="col-2">Nombre</label>
                 <input type="text" class="form-control col-10" id="nombre" placeholder="Nombre" style="background-color: #60C1DE;" name="nombre">
+                <p></p>
             </div>
             <div class="form-group mb-3 ">
                 <label for="apellidos">Apellidos</label>
                 <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" style="background-color: #60C1DE;" name="apellidos">
+                <p></p>
             </div>
             <div class="form-group mb-3 ">
                 <label for="edad">Edad</label>
                 <input type="text" class="form-control" id="edad" placeholder="Edad" style="background-color: #60C1DE;" name="edad">
+                <p></p>
             </div> 
             <div class="form-group mb-3">
                 <label for="rut">Rut</label>
                 <input type="text" class="form-control" id="rut" placeholder="Rut" style="background-color: #60C1DE;" name="rut">
+                <p></p>
             </div>
             <div class="form-group mb-3">
                 <label for="contacto">Numero de contacto de emergencia:</label>
                 <input type="text" class="form-control" id="contacto" placeholder="Numero de contacto" style="background-color: #60C1DE;"name="contacto">
+                <p></p>
             </div>
             <div class="form-group mb-3 ">
                 <label for="enfermedades">Enfermedades</label>
                 <input type="text" class="form-control" id="enfermedades" placeholder="Enfermedades" style="background-color: #60C1DE;" name="enfermedades">
+                <p></p>
             </div>
             <div class="form-group mb-3 ">
                 <label for="observaciones">Observaciones</label>
                 <input type="text" class="form-control" id="observaciones" placeholder="Observaciones" style="background-color: #60C1DE;"name="observaciones">
+                <p></p>
             </div>
             <div style="text-align: center;">
                 <button type="submit" class="btn btn-outline-info">Registrar residente</button>
@@ -49,4 +62,6 @@
     </section>
     </main>
 </body>
-</html>
+    <script src="{% static 'js/registroResidente.js' %}"></script>
+
+</html> 

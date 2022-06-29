@@ -9,21 +9,22 @@
     <title>Lista de residentes</title>
 </head>
 <body>
+  {% include 'navbar.html' %}
+  <br>
     <h1 style="text-align: center;">Lista de residentes</h1>
     <br>
 <div>
-{% if residentes %}
     <ul style="padding: 0.5rem;">
+      <a class="btn btn-outline-info"  href="registroResidente/" style="margin: 0.5rem; float: right; text-align: center;">Registrar nuevo residente</a>
         {% for residente in residentes %}
-        <li><h5>Nombre residente: {{ residente.nombre }} {{ residente.apellidos }}</h5></li>
-        <h5>Edad: {{ residente.edad }}</h5>
-
         <a class="btn btn-outline-info" href="agregarObservaciones/{{ residente.id }}" style="margin: 0.5rem; ">Agregar observaciones</a>
-        <a class="btn btn-info"  href="eliminarResidente/{{ residente.id }}" style="margin: 0.5rem; float: right; text-align: center;">Eliminar residente</a>
+        <a class="btn btn-info"  href="eliminarResidente/{{ residente.id }}" style="margin: 0.5rem; float: left; text-align: center;">Eliminar residente</a>
         <table class="table">
             <thead>
               <tr class="table-info"> 
                 <th scope="col">ID</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellidos</th>
                 <th scope="col">Rut</th>
                 <th scope="col">Numero de contacto:</th>
                 <th scope="col">Enfermedades:</th>
@@ -33,6 +34,8 @@
             <tbody>
               <tr>
                 <th>{{residente.id}}</th>
+                <th>{{residente.nombre}}</th>
+                <th>{{residente.apellidos}}</th>
                 <td>{{residente.rut}}</td>
                 <td>{{residente.contacto}}</td>
                 <td>{{residente.enfermedades}}</td>
@@ -44,7 +47,6 @@
           <br>
         {% endfor %} 
     </ul>
-    {% endif %}
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
